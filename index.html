@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Store</title>
+  <title>Store - Beranda</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <style>
@@ -18,7 +18,7 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
-    button:focus {
+    button:focus, a:focus {
       outline: none;
       border-radius: 0.75rem;
     }
@@ -45,11 +45,40 @@
     .popup-container.fade-out {
       animation: fadeOut 0.5s ease-in forwards;
     }
+    /* Refined Nav Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+    }
+    nav a {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      transition: color 0.2s;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    nav a.active {
+      color: #2563eb; /* Tailwind's blue-600 for icon and text */
+    }
+    nav a i {
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+    nav a span {
+      font-size: 11px;
+      line-height: 1;
+    }
   </style>
 </head>
 <body class="bg-white min-h-screen flex flex-col">
   <!-- Popup Overlay -->
-  <div id="popupContainer" class="popup-container fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50">
+  <div id="popupContainer" class="popup-container fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50" style="display: none;">
     <div id="overlay" class="bg-gray-100 rounded-2xl max-w-xs w-full select-none overflow-hidden">
       <div class="px-6 pt-6 pb-4 text-center">
         <h1 class="text-black font-semibold text-lg leading-6">
@@ -164,44 +193,44 @@
       <div class="h-24"></div>
     </div>
   </main>
-  <nav class="fixed bottom-0 left-0 right-0 bg-white bg-opacity-70 backdrop-blur-md border-t border-gray-300 flex justify-around py-3 text-xs font-semibold">
-    <button aria-current="page" class="flex flex-col items-center text-blue-600 focus:outline-none rounded" id="tab-today" type="button">
+  <nav class="fixed bottom-0 left-0 right-0 bg-white bg-opacity-70 backdrop-blur-md border-t border-gray-300">
+    <a href="index.html" class="flex flex-col items-center text-blue-600 active" id="tab-today">
       <i class="fas fa-book text-lg"></i>
       <span>Beranda</span>
-    </button>
-    <button class="flex flex-col items-center text-gray-400 focus:outline-none rounded" id="tab-games" type="button">
+    </a>
+    <a href="games.html" class="flex flex-col items-center text-gray-400" id="tab-games">
       <i class="fas fa-rocket text-lg"></i>
       <span>Permainan</span>
-    </button>
-    <button class="flex flex-col items-center text-gray-400 focus:outline-none rounded" id="tab-apps" type="button">
+    </a>
+    <a href="troll.html" class="flex flex-col items-center text-gray-400" id="tab-apps">
       <i class="fas fa-layer-group text-lg"></i>
       <span>Troll</span>
-    </button>
+    </a>
+    <a href="updates.html" class="flex flex-col items-center text-gray-400" id="tab-updates">
+      <i class="fas fa-sync-alt text-lg"></i>
+      <span>Pembaruan</span>
+    </a>
   </nav>
 
   <script>
-    // Tab navigation
-    const tabs = document.querySelectorAll("nav button");
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        tabs.forEach((t) => {
-          t.classList.remove("text-blue-600");
-          t.classList.add("text-gray-400");
-        });
-        tab.classList.add("text-blue-600");
-        tab.classList.remove("text-gray-400");
-      });
-    });
-
     // Popup functionality
     const popupContainer = document.getElementById("popupContainer");
     const laporkanBtn = document.getElementById("laporkanBtn");
     const terimaBtn = document.getElementById("terimaBtn");
 
+    // Check if the user has already seen the popup
+    const hasSeenPopup = localStorage.getItem("hasSeenPopup");
+
+    if (!hasSeenPopup) {
+      // Show popup if not seen
+      popupContainer.style.display = "flex";
+    }
+
     // Laporkan button redirects to WhatsApp with pre-filled message
     laporkanBtn.addEventListener("click", () => {
       popupContainer.classList.add("fade-out");
       setTimeout(() => {
+        localStorage.setItem("hasSeenPopup", "true"); // Mark popup as seen
         window.location.href = "https://wa.me/+6281556486025?text=Saya%20ingin%20melaporkan%2C%20bahwa%20website%20tidak%20dapat%20di%20akses.%20Mohon%20untuk%20di%20perbaiki%F0%9F%99%8F";
       }, 500); // Match fade-out animation duration
     });
@@ -211,6 +240,7 @@
       popupContainer.classList.add("fade-out");
       setTimeout(() => {
         popupContainer.style.display = "none";
+        localStorage.setItem("hasSeenPopup", "true"); // Mark popup as seen
       }, 500); // Match fade-out animation duration
     });
   </script>
