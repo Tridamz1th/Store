@@ -226,6 +226,15 @@
         });
         tab.classList.add("text-blue-600", "active");
         tab.classList.remove("text-gray-400");
+        if (tab.id === "tab-today") {
+          window.location.href = window.location.href; // Tetap di halaman saat ini
+        } else if (tab.id === "tab-games") {
+          window.location.href = "https://raw.githubusercontent.com/Tridamz1th/Store/main/games.html";
+        } else if (tab.id === "tab-apps") {
+          window.location.href = "https://raw.githubusercontent.com/Tridamz1th/Store/main/troll.html";
+        } else if (tab.id === "tab-updates") {
+          window.location.href = "https://raw.githubusercontent.com/Tridamz1th/Store/main/updates.html";
+        }
       });
     });
     const popupContainer = document.getElementById("popupContainer");
@@ -299,4 +308,4 @@
     scheduleIncrement();
   </script>
 </body>
-</html>
+  </html
