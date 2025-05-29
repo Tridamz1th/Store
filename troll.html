@@ -20,7 +20,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start; /* Changed to move content to the top */
       min-height: calc(100vh - 96px); /* Adjust for nav height */
     }
     a:focus {
@@ -62,7 +62,7 @@
   <!-- Main Content -->
   <main class="flex-grow p-5 pt-10">
     <img alt="Trollface" class="w-48 h-48 object-contain" src="res/trollface.png" />
-    <img alt="Loading GIF" class="w-16 h-16 object-contain mt-6" src="res/load.gif" />
+    <img alt="Loading GIF" class="w-8 h-8 object-contain mt-6" src="res/load.gif" />
   </main>
   <nav class="fixed bottom-0 left-0 right-0 bg-white bg-opacity-70 backdrop-blur-md border-t border-gray-300">
     <a href="index.html" class="flex flex-col items-center text-gray-400" id="tab-today">
