@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Store - Permainan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;700&display=swap");
+    body {
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      background: #fff;
+    }
+    main {
+      padding-bottom: 96px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    a:focus {
+      outline: none;
+      border-radius: 0.75rem;
+    }
+    /* Refined Nav Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+    }
+    nav a {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      transition: color 0.2s;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    nav a.active {
+      color: #2563eb; /* Tailwind's blue-600 for icon and text */
+    }
+    nav a i {
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+    nav a span {
+      font-size: 11px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+  <!-- Main Content -->
+  <main class="flex-grow p-5 pt-10">
+    <h1 class="font-extrabold text-4xl leading-tight text-black">
+      Permainan
+    </h1>
+    <p class="text-gray-700 text-sm mt-4">
+      Mohon maaf, fitur ini sedang dalam pengembangan
+    </p>
+  </main>
+  <nav class="fixed bottom-0 left-0 right-0 bg-white bg-opacity-70 backdrop-blur-md border-t border-gray-300">
+    <a href="index.html" class="flex flex-col items-center text-gray-400" id="tab-today">
+      <i class="fas fa-book text-lg"></i>
+      <span>Beranda</span>
+    </a>
+    <a href="games.html" class="flex flex-col items-center text-blue-600 active" id="tab-games">
+      <i class="fas fa-rocket text-lg"></i>
+      <span>Permainan</span>
+    </a>
+    <a href="troll.html" class="flex flex-col items-center text-gray-400" id="tab-apps">
+      <i class="fas fa-layer-group text-lg"></i>
+      <span>Troll</span>
+    </a>
+    <a href="updates.html" class="flex flex-col items-center text-gray-400" id="tab-updates">
+      <i class="fas fa-sync-alt text-lg"></i>
+      <span>Pembaruan</span>
+    </a>
+  </nav>
+</body>
+</html>
