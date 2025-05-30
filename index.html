@@ -1,1 +1,240 @@
-Mohon maaf, sedang dalam perbaikan
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Store - Beranda</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;700&display=swap");
+    body {
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      background: #fff;
+    }
+    main {
+      padding-bottom: 96px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    button:focus, a:focus {
+      outline: none;
+      border-radius: 0.75rem;
+    }
+    /* Popup Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+    .popup-container {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    .popup-container.fade-out {
+      animation: fadeOut 0.5s ease-in forwards;
+    }
+    /* Refined Nav Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+    }
+    nav a {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      transition: color 0.2s;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    nav a.active {
+      color: #2563eb; /* Tailwind's blue-600 for icon and text */
+    }
+    nav a i {
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+    nav a span {
+      font-size: 11px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+  <!-- Popup Overlay -->
+  <div id="popupContainer" class="popup-container fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50" style="display: flex;">
+    <div id="overlay" class="bg-gray-100 rounded-2xl max-w-xs w-full select-none overflow-hidden">
+      <div class="px-6 pt-6 pb-4 text-center">
+        <h1 class="text-black font-semibold text-lg leading-6">
+          Selamat datang<br />Silakan laporkan kendala pada website ini kepada tim Tridamz1th
+        </h1>
+        <p class="text-gray-700 text-sm mt-2 leading-5">
+          status : perbaikan
+        </p>
+      </div>
+      <hr class="border-gray-300" />
+      <div class="flex">
+        <button
+          id="laporkanBtn"
+          class="flex-1 text-blue-500 text-base font-normal py-4 border-r border-gray-300 hover:bg-gray-200 transition rounded-bl-2xl"
+          type="button"
+        >
+          Laporkan
+        </button>
+        <button
+          id="terimaBtn"
+          class="flex-1 text-blue-500 text-base font-normal py-4 hover:bg-gray-200 transition rounded-br-2xl"
+          type="button"
+        >
+          Terima
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Store Content -->
+  <main class="flex-grow p-5 pt-10">
+    <p class="text-gray-500 text-xs font-semibold tracking-wide">
+      Tridamz1th
+    </p>
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="font-extrabold text-4xl leading-tight text-black">
+        Hari ini
+      </h1>
+      <img alt="Tridamz1th_Dev" class="w-12 h-12 rounded-full shadow-md" height="48" src="res/pic/profil.png" width="48" />
+    </div>
+    <img alt="Spotify ADS" class="rounded-3xl shadow-[0_10px_20px_rgba(0,0,0,0.15)] max-w-full aspect-[1/1.6]" height="640" src="res/ad/banner.png" width="400" />
+    <div class="mt-20">
+      <div class="text-black font-extrabold text-4xl mb-10">
+        Aplikasi
+      </div>
+      <div class="flex flex-col space-y-10">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <img alt="Spotify icon" class="w-16 h-16 rounded-xl bg-gray-300 flex-shrink-0 object-contain" src="res/app/1.png" />
+            <div>
+              <div class="text-black font-semibold text-lg leading-tight">
+                Spotify
+              </div>
+              <div class="text-gray-700 text-sm">
+                Spotify AB
+              </div>
+            </div>
+          </div>
+          <a href="https://wira.adem.my.id/?source=youtube&title=F3n755mrnT&type=apk&download=aHR0cHM6Ly9kb3dubG9hZDE1ODYubWVkaWFmaXJlLmNvbS9xNXJqMWZvcm4ybWdVOEdhcGlxSnp5RjFPdnpNU0pKb01zci02MnpWUkJOZDljWE16VEtNaWpPQldWaTNUVkJVcWpzb1RuZWEtbTkzY0g5OWc1T2hhTVkxRWloTmstVEFGcmRjbzg0ZGRHU2pTTDVnS1hYWURjWEFaTTFRY2diTzd4dERYeVNNYkdiMzhJRmZoNW05OHZxWHMycUNmNDZtN2haYlplVFpWTjY2OWcveGJqdnF4d3R0d280cm5sL1Nwb3RpZnkuYXBr" target="_blank" class="bg-gray-300 rounded-full px-5 py-1.5 font-semibold text-blue-600">
+            Get
+          </a>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <img alt="Stumble Guys icon" class="w-16 h-16 rounded-xl bg-gray-300 flex-shrink-0 object-contain" src="res/app/2.png" />
+            <div>
+              <div class="text-black font-semibold text-lg leading-tight">
+                Stumble Guys
+              </div>
+              <div class="text-gray-700 text-sm">
+                Scopely
+              </div>
+            </div>
+          </div>
+          <button class="bg-gray-300 rounded-full px-5 py-1.5 font-semibold text-blue-600" type="button">
+            not available
+          </button>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <img alt="Discord icon" class="w-16 h-16 rounded-xl bg-gray-300 flex-shrink-0 object-contain" src="res/app/3.png" />
+            <div>
+              <div class="text-black font-semibold text-lg leading-tight">
+                Discord
+              </div>
+              <div class="text-gray-700 text-sm">
+                Discord Inc
+              </div>
+            </div>
+          </div>
+          <button class="bg-gray-300 rounded-full px-5 py-1.5 font-semibold text-blue-600" type="button">
+            not available
+          </button>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <img alt="Free Fire icon" class="w-16 h-16 rounded-xl bg-gray-300 flex-shrink-0 object-contain" src="res/app/4.png" />
+            <div>
+              <div class="text-black font-semibold text-lg leading-tight">
+                Free Fire
+              </div>
+              <div class="text-gray-700 text-sm">
+                Garena International l
+              </div>
+            </div>
+          </div>
+          <button class="bg-gray-300 rounded-full px-5 py-1.5 font-semibold text-blue-600" type="button">
+            not available
+          </button>
+        </div>
+      </div>
+      <div class="h-24"></div>
+    </div>
+  </main>
+  <nav class="fixed bottom-0 left-0 right-0 bg-white bg-opacity-70 backdrop-blur-md border-t border-gray-300">
+    <a href="index.html" class="flex flex-col items-center text-blue-600 active" id="tab-today">
+      <i class="fas fa-book text-lg"></i>
+      <span>Beranda</span>
+    </a>
+    <a href="games.html" class="flex flex-col items-center text-gray-400" id="tab-games">
+      <i class="fas fa-rocket text-lg"></i>
+      <span>Permainan</span>
+    </a>
+    <a href="troll.html" class="flex flex-col items-center text-gray-400" id="tab-apps">
+      <i class="fas fa-layer-group text-lg"></i>
+      <span>Troll</span>
+    </a>
+    <a href="updates.html" class="flex flex-col items-center text-gray-400" id="tab-updates">
+      <i class="fas fa-sync-alt text-lg"></i>
+      <span>Pembaruan</span>
+    </a>
+  </nav>
+
+  <script>
+    // Popup functionality
+    const popupContainer = document.getElementById("popupContainer");
+    const laporkanBtn = document.getElementById("laporkanBtn");
+    const terimaBtn = document.getElementById("terimaBtn");
+
+    // Popup is already shown by default with style="display: flex;"
+
+    // Laporkan button redirects to WhatsApp with pre-filled message
+    laporkanBtn.addEventListener("click", () => {
+      popupContainer.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "https://wa.me/+6281556486025?text=Saya%20ingin%20melaporkan%2C%20bahwa%20website%20tidak%20dapat%20di%20akses.%20Mohon%20untuk%20di%20perbaiki%F0%9F%99%8F";
+      }, 500); // Match fade-out animation duration
+    });
+
+    // Terima button hides popup
+    terimaBtn.addEventListener("click", () => {
+      popupContainer.classList.add("fade-out");
+      setTimeout(() => {
+        popupContainer.style.display = "none";
+      }, 500); // Match fade-out animation duration
+    });
+  </script>
+</body>
+</html>
