@@ -12,4 +12,5 @@ Store adalah site untuk mengunduh aplikasi yang sudah di modifikasi oleh pihak T
 |------|--------|
 | ![Home](https://github.com/Tridamz1th/Store/blob/main/res/public/Beranda.png) | ![Search](https://github.com/Tridamz1th/Store/blob/main/res/public/ListAPP.png)
 
-# Make with love <3
+# Link
+https://tridamz1th.github.io/Store/
