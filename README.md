@@ -10,6 +10,6 @@ Store adalah site untuk mengunduh aplikasi yang sudah di modifikasi oleh pihak T
 ## Screenshots
 | Tampilan | ListApp
 |------|--------|
-| ![Home](Screenshots/Home.jpg) | ![Search](Screenshots/Search.jpg)
+| ![Home](https://github.com/Tridamz1th/Store/blob/main/res/public/Beranda.png) | ![Search](Screenshots/Search.jpg)
 
 # Make with love <3
