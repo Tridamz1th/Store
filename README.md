@@ -10,7 +10,7 @@ Store adalah site untuk mengunduh aplikasi yang sudah di modifikasi oleh pihak T
 ## Screenshots
 | Tampilan | ListApp | Preview APP
 |------|--------|--------|
-| ![Home](https://github.com/Tridamz1th/Store/blob/main/res/public/Beranda.png) | ![Search](https://github.com/Tridamz1th/Store/blob/main/res/public/ListAPP.png) | ![Home](https://github.com/Tridamz1th/Store/blob/main/res/public/Beranda.png)
+| ![Home](https://github.com/Tridamz1th/Store/blob/main/res/public/Beranda.png) | ![Search](https://github.com/Tridamz1th/Store/blob/main/res/public/ListAPP.png) | ![Home](https://github.com/Tridamz1th/Store/blob/main/res/public/prevapp.png)
 
 # Link
 https://tridamz1th.github.io/Store/
